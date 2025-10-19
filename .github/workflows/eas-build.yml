@@ -1,0 +1,30 @@
+name: EAS Build
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+      - name: Install dependencies
+        run: npm ci
+      - name: EAS build (android)
+        env:
+          EAS_BUILD_PROFILE: production
+          EAS_BUILD_PLATFORM: android
+          EAS_USERNAME: ${{ secrets.EAS_USERNAME }}
+        run: |
+          eas whoami || true
+          eas build -p android --non-interactive --profile production

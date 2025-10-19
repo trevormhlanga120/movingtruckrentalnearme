@@ -1,0 +1,14 @@
+{
+  "build": {
+    "production": {
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "releaseChannel": "production"
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    }
+  }
+}

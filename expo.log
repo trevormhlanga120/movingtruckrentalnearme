@@ -1,0 +1,11 @@
+
+> truck_delivery_app@0.1.0 start
+> expo start
+
+Starting project at /home/trevor/uz_dining_app/truck_delivery_app
+› Port 19000 is running this app in another window
+  /home/trevor/uz_dining_app/truck_delivery_app (pid 77833)
+Input is required, but 'npx expo' is in non-interactive mode.
+Required input:
+> Use port 19001 instead?
+› Skipping dev server
