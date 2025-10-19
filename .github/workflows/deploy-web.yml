@@ -19,7 +19,13 @@ jobs:
         run: npm ci
 
       - name: Build web
-        run: npm run build:web
+        run: |
+          npx expo --version
+          npm run build:web
+
+      - name: Show web-build contents (debug)
+        run: |
+          echo "web-build contents:" && ls -la web-build || echo "web-build not found"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
